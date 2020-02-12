@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="HelpDeskNGPModel.Login_Support" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpDeskNGPModel.Notes_Support" Width="1.5" PointX="8.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpDeskNGPModel.Service_Client" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HelpDeskNGPModel.Service_Support" Width="1.5" PointX="0.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskNGPModel.Service_Support" Width="1.875" PointX="0.5" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpDeskNGPModel.Supervisor_Support" Width="1.875" PointX="0.875" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpDeskNGPModel.Supporter_Support" Width="2" PointX="3.25" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HelpDeskNGPModel.sysdiagrams" Width="2.125" PointX="9.5" PointY="8.625" IsExpanded="true" />

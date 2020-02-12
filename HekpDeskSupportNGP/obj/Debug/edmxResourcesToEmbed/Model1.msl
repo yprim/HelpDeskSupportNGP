@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HelpDeskNGPModelStoreContainer" CdmEntityContainer="HelpDeskNGPEntities">
+    <EntitySetMapping Name="Commets_Client">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Commets_Client">
+        <MappingFragment StoreEntitySet="Commets_Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note_timestamp" ColumnName="note_timestamp" />
+          <ScalarProperty Name="id_issue" ColumnName="id_issue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issue_Client">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Issue_Client">
+        <MappingFragment StoreEntitySet="Issue_Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="report_number" ColumnName="report_number" />
+          <ScalarProperty Name="register_timestamp" ColumnName="register_timestamp" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+          <ScalarProperty Name="contact_email" ColumnName="contact_email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="support_user_asigned" ColumnName="support_user_asigned" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issue_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Issue_Support">
+        <MappingFragment StoreEntitySet="Issue_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="report_number" ColumnName="report_number" />
+          <ScalarProperty Name="classification" ColumnName="classification" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="report_timestamp" ColumnName="report_timestamp" />
+          <ScalarProperty Name="resolution_comment" ColumnName="resolution_comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login_Client">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Login_Client">
+        <MappingFragment StoreEntitySet="Login_Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Login_Support">
+        <MappingFragment StoreEntitySet="Login_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="is_supervisor" ColumnName="is_supervisor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Notes_Support">
+        <MappingFragment StoreEntitySet="Notes_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="note_timestamp" ColumnName="note_timestamp" />
+          <ScalarProperty Name="id_issue" ColumnName="id_issue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service_Client">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Service_Client">
+        <MappingFragment StoreEntitySet="Service_Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Service_Support">
+        <MappingFragment StoreEntitySet="Service_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supervisor_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Supervisor_Support">
+        <MappingFragment StoreEntitySet="Supervisor_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="first_surname" ColumnName="first_surname" />
+          <ScalarProperty Name="second_surname" ColumnName="second_surname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supporter_Support">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.Supporter_Support">
+        <MappingFragment StoreEntitySet="Supporter_Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="first_surname" ColumnName="first_surname" />
+          <ScalarProperty Name="second_surname" ColumnName="second_surname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_supervisor" ColumnName="id_supervisor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Client">
+      <EntityTypeMapping TypeName="HelpDeskNGPModel.User_Client">
+        <MappingFragment StoreEntitySet="User_Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="first_surname" ColumnName="first_surname" />
+          <ScalarProperty Name="second_surname" ColumnName="second_surname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="second_contact" ColumnName="second_contact" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Client_Service_Client" TypeName="HelpDeskNGPModel.Client_Service_Client" StoreEntitySet="Client_Service_Client">
+      <EndProperty Name="Service_Client">
+        <ScalarProperty Name="id" ColumnName="id_service" />
+      </EndProperty>
+      <EndProperty Name="User_Client">
+        <ScalarProperty Name="id" ColumnName="id_client" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Supporter_Service_Support" TypeName="HelpDeskNGPModel.Supporter_Service_Support" StoreEntitySet="Supporter_Service_Support">
+      <EndProperty Name="Service_Support">
+        <ScalarProperty Name="id" ColumnName="id_service" />
+      </EndProperty>
+      <EndProperty Name="Supporter_Support">
+        <ScalarProperty Name="id" ColumnName="id_supporter" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HelpDeskNGPModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HelpDeskNGPModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HelpDeskNGPModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HelpDeskNGPModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HelpDeskNGPModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HelpDeskNGPModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HelpDeskNGPModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HelpDeskNGPModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HelpDeskNGPModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
