@@ -41,5 +41,38 @@ namespace Support.Controllers
 
         }
 
+
+        public IHttpActionResult GetByReport(int report)
+        {
+            IssueModel issue = null;
+
+
+            using (var context = new Entities())
+            {
+                issue = context.Issue_Support
+                    .Where(issueItem =>issueItem.id== report)
+                    .Select(issueItem => new IssueModel()
+                    {
+                        id = issueItem.id,
+                        report_number = issueItem.report_number,
+                        classification = issueItem.classification,
+                        status = issueItem.status,
+                        report_timestamp = issueItem.report_timestamp,
+                        resolution_comment = issueItem.resolution_comment,
+                        id_supporter = issueItem.id_supporter,
+                        description = issueItem.description,
+                    }).FirstOrDefault<IssueModel>();
+
+            }
+            //TODO: transform this snippet into a single return 
+            if (issue == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(issue);
+
+        }
+
     }
 }
