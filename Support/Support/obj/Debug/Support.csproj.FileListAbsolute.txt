@@ -299,3 +299,4 @@ C:\Users\adria\Desktop\suportApi\HelpDeskSupportNGP\Support\Support\bin\System.R
 C:\Users\adria\Desktop\suportApi\HelpDeskSupportNGP\Support\Support\bin\System.Text.Encodings.Web.xml
 C:\Users\adria\Desktop\suportApi\HelpDeskSupportNGP\Support\Support\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\adria\Desktop\suportApi\HelpDeskSupportNGP\Support\Support\bin\System.Web.Http.Cors.xml
+C:\Users\adria\Desktop\suportApi\HelpDeskSupportNGP\Support\Support\obj\Debug\Support.csprojAssemblyReference.cache
