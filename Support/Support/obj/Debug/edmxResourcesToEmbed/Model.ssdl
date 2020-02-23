@@ -8,6 +8,7 @@
     <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="note_timestamp" Type="datetime" Nullable="false" />
     <Property Name="id_issue" Type="int" />
+    <Property Name="report_number" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Issue_Client">
     <Key>
@@ -73,16 +74,6 @@
     <Property Name="telephone" Type="int" />
     <Property Name="internet" Type="int" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="User_Client">
     <Key>
       <PropertyRef Name="id" />
@@ -101,7 +92,7 @@
     <Property Name="telephone" Type="int" />
     <Property Name="internet" Type="int" />
   </EntityType>
-  <Association Name="FK__Issue_Sup__id_su__440B1D61">
+  <Association Name="FK__Issue_Sup__id_su__30F848ED">
     <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="0..1" />
     <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="*" />
     <ReferentialConstraint>
@@ -168,9 +159,8 @@
     <EntitySet Name="Notes_Support" EntityType="Self.Notes_Support" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supervisor_Support" EntityType="Self.Supervisor_Support" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supporter_Support" EntityType="Self.Supporter_Support" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_Client" EntityType="Self.User_Client" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Issue_Sup__id_su__440B1D61" Association="Self.FK__Issue_Sup__id_su__440B1D61">
+    <AssociationSet Name="FK__Issue_Sup__id_su__30F848ED" Association="Self.FK__Issue_Sup__id_su__30F848ED">
       <End Role="Supporter_Support" EntitySet="Supporter_Support" />
       <End Role="Issue_Support" EntitySet="Issue_Support" />
     </AssociationSet>

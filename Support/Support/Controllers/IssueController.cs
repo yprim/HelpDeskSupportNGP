@@ -15,18 +15,18 @@ namespace Support.Controllers
             IList<IssueModel> issues = null;
 
 
-            using (var context = new Entities())
+            using (var context = new Entities1())
             {
                 issues = context.Issue_Support
                     .Select(issueItem => new IssueModel()
                     {
                         id = issueItem.id,
-                        report_number = issueItem.report_number,
+                        reportNumber = issueItem.report_number,
                         classification = issueItem.classification,
                         status = issueItem.status,
-                        report_timestamp = issueItem.report_timestamp,
-                        resolution_comment = issueItem.resolution_comment,
-                        id_supporter = issueItem.id_supporter,
+                        reportTimestamp = issueItem.report_timestamp,
+                        resolutionComment = issueItem.resolution_comment,
+                        idSupporter = issueItem.id_supporter,
                         description = issueItem.description,
                     }).ToList<IssueModel>();
 
@@ -42,24 +42,24 @@ namespace Support.Controllers
         }
 
 
-        public IHttpActionResult GetByReport(int report)
+        public IHttpActionResult GetById(int id)
         {
             IssueModel issue = null;
 
 
-            using (var context = new Entities())
+            using (var context = new Entities1())
             {
                 issue = context.Issue_Support
-                    .Where(issueItem =>issueItem.id== report)
+                    .Where(issueItem =>issueItem.id_supporter== id)
                     .Select(issueItem => new IssueModel()
                     {
                         id = issueItem.id,
-                        report_number = issueItem.report_number,
+                        reportNumber = issueItem.report_number,
                         classification = issueItem.classification,
                         status = issueItem.status,
-                        report_timestamp = issueItem.report_timestamp,
-                        resolution_comment = issueItem.resolution_comment,
-                        id_supporter = issueItem.id_supporter,
+                        reportTimestamp = issueItem.report_timestamp,
+                        resolutionComment = issueItem.resolution_comment,
+                        idSupporter = issueItem.id_supporter,
                         description = issueItem.description,
                     }).FirstOrDefault<IssueModel>();
 

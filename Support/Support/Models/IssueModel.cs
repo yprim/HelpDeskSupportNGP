@@ -9,12 +9,12 @@ namespace Support.Models
     {
 
         public int id { get; set; }
-        public string report_number { get; set; }
+        public string reportNumber { get; set; }
         public string classification { get; set; }
         public string status { get; set; }
-        public System.DateTime report_timestamp { get; set; }
-        public string resolution_comment { get; set; }
-        public Nullable<int> id_supporter { get; set; }
+        public System.DateTime reportTimestamp { get; set; }
+        public string resolutionComment { get; set; }
+        public Nullable<int> idSupporter { get; set; }
         public string description { get; set; }
 
     }
