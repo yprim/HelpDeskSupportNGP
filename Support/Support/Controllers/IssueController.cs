@@ -74,5 +74,28 @@ namespace Support.Controllers
 
         }
 
+
+
+
+        public IHttpActionResult Put(IssueModel issue)
+        {
+            using (var context = new Entities1())
+            {
+                var existingIssue = context.Issue_Support.Where(id => id.id == issue.id).FirstOrDefault<Issue_Support>();
+                if (existingIssue != null)
+                {
+                    existingIssue.status = issue.status;
+                    existingIssue.id_supporter = issue.idSupporter;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            return Ok();
+        }
+
     }
 }
