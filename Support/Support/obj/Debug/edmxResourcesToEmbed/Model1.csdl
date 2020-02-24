@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HelpDeskNGPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comment_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="note_timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_issue" Type="Int32" />
+    <Property Name="report_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Issue_Client" Relationship="Self.FK_Comment_Client_Issue_Client" FromRole="Comment_Client" ToRole="Issue_Client" />
+  </EntityType>
+  <EntityType Name="Issue_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="report_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="register_timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contact_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contact_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="support_user_asigned" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_user" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Comment_Client" Relationship="Self.FK_Comment_Client_Issue_Client" FromRole="Issue_Client" ToRole="Comment_Client" />
+    <NavigationProperty Name="User_Client" Relationship="Self.FK_Issue_Client_User_Client" FromRole="Issue_Client" ToRole="User_Client" />
+  </EntityType>
+  <EntityType Name="Issue_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="report_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="classification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="report_timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="resolution_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_supporter" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Supporter_Support" Relationship="Self.FK__Issue_Sup__id_su__30F848ED" FromRole="Issue_Support" ToRole="Supporter_Support" />
+    <NavigationProperty Name="Notes_Support" Relationship="Self.FK_Notes_Support_Issue_Support" FromRole="Issue_Support" ToRole="Notes_Support" />
+  </EntityType>
+  <EntityType Name="Notes_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="note_timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_issue" Type="Int32" />
+    <NavigationProperty Name="Issue_Support" Relationship="Self.FK_Notes_Support_Issue_Support" FromRole="Notes_Support" ToRole="Issue_Support" />
+  </EntityType>
+  <EntityType Name="Supervisor_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="first_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="second_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Supporter_Support" Relationship="Self.FK_Supporter_Supervisor" FromRole="Supervisor_Support" ToRole="Supporter_Support" />
+  </EntityType>
+  <EntityType Name="Supporter_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="first_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="second_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_supervisor" Type="Int32" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="television" Type="Int32" />
+    <Property Name="mobile_phone" Type="Int32" />
+    <Property Name="telephone" Type="Int32" />
+    <Property Name="internet" Type="Int32" />
+    <NavigationProperty Name="Issue_Support" Relationship="Self.FK__Issue_Sup__id_su__30F848ED" FromRole="Supporter_Support" ToRole="Issue_Support" />
+    <NavigationProperty Name="Supervisor_Support" Relationship="Self.FK_Supporter_Supervisor" FromRole="Supporter_Support" ToRole="Supervisor_Support" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="first_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="second_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="second_contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="television" Type="Int32" />
+    <Property Name="mobile_phone" Type="Int32" />
+    <Property Name="telephone" Type="Int32" />
+    <Property Name="internet" Type="Int32" />
+    <NavigationProperty Name="Issue_Client" Relationship="Self.FK_Issue_Client_User_Client" FromRole="User_Client" ToRole="Issue_Client" />
+  </EntityType>
+  <Association Name="FK_Comment_Client_Issue_Client">
+    <End Role="Issue_Client" Type="Self.Issue_Client" Multiplicity="0..1" />
+    <End Role="Comment_Client" Type="Self.Comment_Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue_Client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment_Client">
+        <PropertyRef Name="id_issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Issue_Client_User_Client">
+    <End Role="User_Client" Type="Self.User_Client" Multiplicity="0..1" />
+    <End Role="Issue_Client" Type="Self.Issue_Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Issue_Client">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Issue_Sup__id_su__30F848ED">
+    <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="0..1" />
+    <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supporter_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Issue_Support">
+        <PropertyRef Name="id_supporter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Support_Issue_Support">
+    <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="0..1" />
+    <End Role="Notes_Support" Type="Self.Notes_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Notes_Support">
+        <PropertyRef Name="id_issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supporter_Supervisor">
+    <End Role="Supervisor_Support" Type="Self.Supervisor_Support" Multiplicity="0..1" />
+    <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supervisor_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Supporter_Support">
+        <PropertyRef Name="id_supervisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comment_Client" EntityType="Self.Comment_Client" />
+    <EntitySet Name="Issue_Client" EntityType="Self.Issue_Client" />
+    <EntitySet Name="Issue_Support" EntityType="Self.Issue_Support" />
+    <EntitySet Name="Notes_Support" EntityType="Self.Notes_Support" />
+    <EntitySet Name="Supervisor_Support" EntityType="Self.Supervisor_Support" />
+    <EntitySet Name="Supporter_Support" EntityType="Self.Supporter_Support" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="User_Client" EntityType="Self.User_Client" />
+    <AssociationSet Name="FK_Comment_Client_Issue_Client" Association="Self.FK_Comment_Client_Issue_Client">
+      <End Role="Issue_Client" EntitySet="Issue_Client" />
+      <End Role="Comment_Client" EntitySet="Comment_Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Issue_Client_User_Client" Association="Self.FK_Issue_Client_User_Client">
+      <End Role="User_Client" EntitySet="User_Client" />
+      <End Role="Issue_Client" EntitySet="Issue_Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Issue_Sup__id_su__30F848ED" Association="Self.FK__Issue_Sup__id_su__30F848ED">
+      <End Role="Supporter_Support" EntitySet="Supporter_Support" />
+      <End Role="Issue_Support" EntitySet="Issue_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Support_Issue_Support" Association="Self.FK_Notes_Support_Issue_Support">
+      <End Role="Issue_Support" EntitySet="Issue_Support" />
+      <End Role="Notes_Support" EntitySet="Notes_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supporter_Supervisor" Association="Self.FK_Supporter_Supervisor">
+      <End Role="Supervisor_Support" EntitySet="Supervisor_Support" />
+      <End Role="Supporter_Support" EntitySet="Supporter_Support" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

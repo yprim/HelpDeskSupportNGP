@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HelpDeskNGPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comment_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="note_timestamp" Type="datetime" Nullable="false" />
+    <Property Name="id_issue" Type="int" />
+    <Property Name="report_number" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Issue_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="report_number" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="register_timestamp" Type="datetime" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="contact_phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contact_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="support_user_asigned" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_user" Type="int" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Issue_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="report_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="classification" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="report_timestamp" Type="datetime" Nullable="false" />
+    <Property Name="resolution_comment" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_supporter" Type="int" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Notes_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="note_timestamp" Type="datetime" Nullable="false" />
+    <Property Name="id_issue" Type="int" />
+  </EntityType>
+  <EntityType Name="Supervisor_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="first_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="second_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supporter_Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="first_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="second_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_supervisor" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="television" Type="int" />
+    <Property Name="mobile_phone" Type="int" />
+    <Property Name="telephone" Type="int" />
+    <Property Name="internet" Type="int" />
+  </EntityType>
+  <EntityType Name="User_Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="first_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="second_surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="second_contact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="television" Type="int" />
+    <Property Name="mobile_phone" Type="int" />
+    <Property Name="telephone" Type="int" />
+    <Property Name="internet" Type="int" />
+  </EntityType>
+  <Association Name="FK__Issue_Sup__id_su__30F848ED">
+    <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="0..1" />
+    <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supporter_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Issue_Support">
+        <PropertyRef Name="id_supporter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Client_Issue_Client">
+    <End Role="Issue_Client" Type="Self.Issue_Client" Multiplicity="0..1" />
+    <End Role="Comment_Client" Type="Self.Comment_Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue_Client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comment_Client">
+        <PropertyRef Name="id_issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Issue_Client_User_Client">
+    <End Role="User_Client" Type="Self.User_Client" Multiplicity="0..1" />
+    <End Role="Issue_Client" Type="Self.Issue_Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Issue_Client">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notes_Support_Issue_Support">
+    <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="0..1" />
+    <End Role="Notes_Support" Type="Self.Notes_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Notes_Support">
+        <PropertyRef Name="id_issue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supporter_Supervisor">
+    <End Role="Supervisor_Support" Type="Self.Supervisor_Support" Multiplicity="0..1" />
+    <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supervisor_Support">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Supporter_Support">
+        <PropertyRef Name="id_supervisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HelpDeskNGPModelStoreContainer">
+    <EntitySet Name="Comment_Client" EntityType="Self.Comment_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Issue_Client" EntityType="Self.Issue_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Issue_Support" EntityType="Self.Issue_Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notes_Support" EntityType="Self.Notes_Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supervisor_Support" EntityType="Self.Supervisor_Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supporter_Support" EntityType="Self.Supporter_Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Client" EntityType="Self.User_Client" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Issue_Sup__id_su__30F848ED" Association="Self.FK__Issue_Sup__id_su__30F848ED">
+      <End Role="Supporter_Support" EntitySet="Supporter_Support" />
+      <End Role="Issue_Support" EntitySet="Issue_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Client_Issue_Client" Association="Self.FK_Comment_Client_Issue_Client">
+      <End Role="Issue_Client" EntitySet="Issue_Client" />
+      <End Role="Comment_Client" EntitySet="Comment_Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Issue_Client_User_Client" Association="Self.FK_Issue_Client_User_Client">
+      <End Role="User_Client" EntitySet="User_Client" />
+      <End Role="Issue_Client" EntitySet="Issue_Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notes_Support_Issue_Support" Association="Self.FK_Notes_Support_Issue_Support">
+      <End Role="Issue_Support" EntitySet="Issue_Support" />
+      <End Role="Notes_Support" EntitySet="Notes_Support" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supporter_Supervisor" Association="Self.FK_Supporter_Supervisor">
+      <End Role="Supervisor_Support" EntitySet="Supervisor_Support" />
+      <End Role="Supporter_Support" EntitySet="Supporter_Support" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
