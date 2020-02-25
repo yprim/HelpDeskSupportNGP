@@ -78,6 +78,7 @@ namespace Support.Controllers
             }
         }
 
+        [HttpPost]
         public IHttpActionResult Post(SupporterModel supporter)
         {
             using (var context = new Entities())

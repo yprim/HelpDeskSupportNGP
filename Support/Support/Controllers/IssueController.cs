@@ -89,6 +89,7 @@ namespace Support.Controllers
                     existingIssue.status = issue.status;
                     existingIssue.id_supporter = issue.idSupporter;
                     existingIssue.resolution_comment = issue.resolutionComment;
+                    existingIssue.classification = issue.classification;
                     context.SaveChanges();
                 }
                 else

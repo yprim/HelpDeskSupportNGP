@@ -65,6 +65,7 @@ namespace Support.Controllers
             }
         }
 
+        [HttpPost]
         public IHttpActionResult Post(SupervisorModel support)
         {
             using (var context = new Entities())

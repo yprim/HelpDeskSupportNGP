@@ -69,6 +69,7 @@ namespace Support.Controllers
 
         }
 
+        [HttpPost]
         public IHttpActionResult Post(CommentModel comment)
         {
             using (var context = new Entities())

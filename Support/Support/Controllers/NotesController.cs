@@ -38,6 +38,7 @@ namespace Support.Controllers
 
         }
 
+        [HttpPost]
         public IHttpActionResult PostNewNote(NotesModel notes)
         {
             using (var context = new Entities())
@@ -58,7 +59,7 @@ namespace Support.Controllers
 
         public IHttpActionResult GetByIssue(int id)
         {
-            NotesModel notes = null;
+            IList<NotesModel> notes = null;
 
             using (var context = new Entities())
             {
@@ -71,7 +72,7 @@ namespace Support.Controllers
                         noteTimestamp = notesItem.note_timestamp,
                         idIssue = notesItem.id_issue
 
-                    }).FirstOrDefault<NotesModel>();
+                    }).ToList<NotesModel>();
 
                 if (notes == null)
                 {
