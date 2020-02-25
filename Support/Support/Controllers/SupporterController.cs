@@ -16,7 +16,7 @@ namespace Support.Controllers
         {
             IList<SupporterModel> supporter = null;
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 supporter = context.Supporter_Support
                     .Select(supporterItem => new SupporterModel()
@@ -49,7 +49,7 @@ namespace Support.Controllers
         {
             SupporterModel support = null;
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 support = context.Supporter_Support
                     .Where(supporterItem => supporterItem.email == email)
@@ -80,7 +80,7 @@ namespace Support.Controllers
 
         public IHttpActionResult Post(SupporterModel supporter)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 context.Supporter_Support.Add(new Supporter_Support()
                 {

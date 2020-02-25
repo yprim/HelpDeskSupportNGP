@@ -15,7 +15,7 @@ namespace Support.Controllers
         {
             IList<SupervisorModel> support = null;
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 support = context.Supervisor_Support
                     .Select(supportItem => new SupervisorModel()
@@ -41,7 +41,7 @@ namespace Support.Controllers
         {
             SupervisorModel support = null;
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 support = context.Supervisor_Support
                     .Where(supportItem => supportItem.email == email)
@@ -67,7 +67,7 @@ namespace Support.Controllers
 
         public IHttpActionResult Post(SupervisorModel support)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 context.Supervisor_Support.Add(new Supervisor_Support()
                 {

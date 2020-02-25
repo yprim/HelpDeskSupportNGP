@@ -13,10 +13,10 @@ namespace Support
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities : DbContext
     {
-        public Entities2()
-            : base("name=Entities2")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -31,7 +31,6 @@ namespace Support
         public virtual DbSet<Notes_Support> Notes_Support { get; set; }
         public virtual DbSet<Supervisor_Support> Supervisor_Support { get; set; }
         public virtual DbSet<Supporter_Support> Supporter_Support { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User_Client> User_Client { get; set; }
     }
 }

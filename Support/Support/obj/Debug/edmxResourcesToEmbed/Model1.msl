@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HelpDeskNGPModelStoreContainer" CdmEntityContainer="Entities2">
+  <EntityContainerMapping StorageEntityContainer="HelpDeskNGPModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="Comment_Client">
       <EntityTypeMapping TypeName="HelpDeskNGPModel.Comment_Client">
         <MappingFragment StoreEntitySet="Comment_Client">
@@ -80,17 +80,6 @@
           <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
           <ScalarProperty Name="telephone" ColumnName="telephone" />
           <ScalarProperty Name="internet" ColumnName="internet" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="HelpDeskNGPModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

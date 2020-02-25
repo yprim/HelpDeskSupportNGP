@@ -26,7 +26,7 @@
           <Property Name="contact_phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="contact_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="support_user_asigned" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="support_user_asigned" Type="varchar" MaxLength="50" />
           <Property Name="id_user" Type="int" />
           <Property Name="description" Type="varchar" MaxLength="50" />
           <Property Name="service" Type="varchar" MaxLength="50" />
@@ -40,7 +40,7 @@
           <Property Name="classification" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="report_timestamp" Type="varchar" MaxLength="50" />
-          <Property Name="resolution_comment" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="resolution_comment" Type="varchar" MaxLength="50" />
           <Property Name="id_supporter" Type="int" />
           <Property Name="description" Type="varchar" MaxLength="50" />
           <Property Name="service" Type="varchar" MaxLength="50" />
@@ -81,16 +81,6 @@
           <Property Name="telephone" Type="int" />
           <Property Name="internet" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="User_Client">
           <Key>
             <PropertyRef Name="id" />
@@ -109,7 +99,7 @@
           <Property Name="telephone" Type="int" />
           <Property Name="internet" Type="int" />
         </EntityType>
-        <Association Name="FK__Issue_Sup__id_su__30F848ED">
+        <Association Name="FK__Issue_Sup__id_su__440B1D61">
           <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="0..1" />
           <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,9 +166,8 @@
           <EntitySet Name="Notes_Support" EntityType="Self.Notes_Support" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supervisor_Support" EntityType="Self.Supervisor_Support" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supporter_Support" EntityType="Self.Supporter_Support" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Client" EntityType="Self.User_Client" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Issue_Sup__id_su__30F848ED" Association="Self.FK__Issue_Sup__id_su__30F848ED">
+          <AssociationSet Name="FK__Issue_Sup__id_su__440B1D61" Association="Self.FK__Issue_Sup__id_su__440B1D61">
             <End Role="Supporter_Support" EntitySet="Supporter_Support" />
             <End Role="Issue_Support" EntitySet="Issue_Support" />
           </AssociationSet>
@@ -226,7 +215,7 @@
           <Property Name="contact_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contact_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="support_user_asigned" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="support_user_asigned" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_user" Type="Int32" />
           <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -242,11 +231,11 @@
           <Property Name="classification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="report_timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="resolution_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resolution_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_supporter" Type="Int32" />
           <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Supporter_Support" Relationship="Self.FK__Issue_Sup__id_su__30F848ED" FromRole="Issue_Support" ToRole="Supporter_Support" />
+          <NavigationProperty Name="Supporter_Support" Relationship="Self.FK__Issue_Sup__id_su__440B1D61" FromRole="Issue_Support" ToRole="Supporter_Support" />
           <NavigationProperty Name="Notes_Support" Relationship="Self.FK_Notes_Support_Issue_Support" FromRole="Issue_Support" ToRole="Notes_Support" />
         </EntityType>
         <EntityType Name="Notes_Support">
@@ -286,18 +275,8 @@
           <Property Name="mobile_phone" Type="Int32" />
           <Property Name="telephone" Type="Int32" />
           <Property Name="internet" Type="Int32" />
-          <NavigationProperty Name="Issue_Support" Relationship="Self.FK__Issue_Sup__id_su__30F848ED" FromRole="Supporter_Support" ToRole="Issue_Support" />
+          <NavigationProperty Name="Issue_Support" Relationship="Self.FK__Issue_Sup__id_su__440B1D61" FromRole="Supporter_Support" ToRole="Issue_Support" />
           <NavigationProperty Name="Supervisor_Support" Relationship="Self.FK_Supporter_Supervisor" FromRole="Supporter_Support" ToRole="Supervisor_Support" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User_Client">
           <Key>
@@ -342,7 +321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Issue_Sup__id_su__30F848ED">
+        <Association Name="FK__Issue_Sup__id_su__440B1D61">
           <End Role="Supporter_Support" Type="Self.Supporter_Support" Multiplicity="0..1" />
           <End Role="Issue_Support" Type="Self.Issue_Support" Multiplicity="*" />
           <ReferentialConstraint>
@@ -378,14 +357,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Comment_Client" EntityType="Self.Comment_Client" />
           <EntitySet Name="Issue_Client" EntityType="Self.Issue_Client" />
           <EntitySet Name="Issue_Support" EntityType="Self.Issue_Support" />
           <EntitySet Name="Notes_Support" EntityType="Self.Notes_Support" />
           <EntitySet Name="Supervisor_Support" EntityType="Self.Supervisor_Support" />
           <EntitySet Name="Supporter_Support" EntityType="Self.Supporter_Support" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="User_Client" EntityType="Self.User_Client" />
           <AssociationSet Name="FK_Comment_Client_Issue_Client" Association="Self.FK_Comment_Client_Issue_Client">
             <End Role="Issue_Client" EntitySet="Issue_Client" />
@@ -395,7 +373,7 @@
             <End Role="User_Client" EntitySet="User_Client" />
             <End Role="Issue_Client" EntitySet="Issue_Client" />
           </AssociationSet>
-          <AssociationSet Name="FK__Issue_Sup__id_su__30F848ED" Association="Self.FK__Issue_Sup__id_su__30F848ED">
+          <AssociationSet Name="FK__Issue_Sup__id_su__440B1D61" Association="Self.FK__Issue_Sup__id_su__440B1D61">
             <End Role="Supporter_Support" EntitySet="Supporter_Support" />
             <End Role="Issue_Support" EntitySet="Issue_Support" />
           </AssociationSet>
@@ -413,7 +391,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HelpDeskNGPModelStoreContainer" CdmEntityContainer="Entities2">
+        <EntityContainerMapping StorageEntityContainer="HelpDeskNGPModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Comment_Client">
             <EntityTypeMapping TypeName="HelpDeskNGPModel.Comment_Client">
               <MappingFragment StoreEntitySet="Comment_Client">
@@ -493,17 +471,6 @@
                 <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
                 <ScalarProperty Name="telephone" ColumnName="telephone" />
                 <ScalarProperty Name="internet" ColumnName="internet" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HelpDeskNGPModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

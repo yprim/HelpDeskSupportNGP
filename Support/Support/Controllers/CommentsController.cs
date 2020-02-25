@@ -15,7 +15,7 @@ namespace Support.Controllers
             IList<CommentModel> comments = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 comments = context.Comment_Client
                     .Select(comentItem => new CommentModel()
@@ -45,7 +45,7 @@ namespace Support.Controllers
              IList<CommentModel> comments = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 comments = context.Comment_Client
                     .Where(comentItem => comentItem.report_number == reportNumber)
@@ -71,7 +71,7 @@ namespace Support.Controllers
 
         public IHttpActionResult Post(CommentModel comment)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 context.Comment_Client.Add(new Comment_Client()
                 {

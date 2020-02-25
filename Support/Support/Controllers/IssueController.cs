@@ -15,7 +15,7 @@ namespace Support.Controllers
             IList<IssueModel> issues = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 issues = context.Issue_Support
                     .Select(issueItem => new IssueModel()
@@ -48,7 +48,7 @@ namespace Support.Controllers
             IssueModel issue = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 issue = context.Issue_Support
                     .Where(issueItem =>issueItem.id_supporter== id)
@@ -81,13 +81,14 @@ namespace Support.Controllers
 
         public IHttpActionResult Put(IssueModel issue)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 var existingIssue = context.Issue_Support.Where(id => id.id == issue.id).FirstOrDefault<Issue_Support>();
                 if (existingIssue != null)
                 {
                     existingIssue.status = issue.status;
                     existingIssue.id_supporter = issue.idSupporter;
+                    existingIssue.resolution_comment = issue.resolutionComment;
                     context.SaveChanges();
                 }
                 else

@@ -17,7 +17,7 @@ namespace Support.Controllers
             IList<IssueClientModel> issues = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 issues = context.Issue_Client
                     .Select(issueItem => new IssueClientModel()
@@ -51,12 +51,13 @@ namespace Support.Controllers
 
         public IHttpActionResult Put(IssueClientModel issue)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 var existingIssue = context.Issue_Client.Where(report => report.report_number == issue.reportNumber).FirstOrDefault<Issue_Client>();
                 if (existingIssue != null)
                 {
                     existingIssue.status = issue.status;
+                    existingIssue.support_user_asigned = issue.supportUserAsigned;
                     context.SaveChanges();
                 }
                 else

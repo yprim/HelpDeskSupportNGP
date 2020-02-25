@@ -15,7 +15,7 @@ namespace Support.Controllers
             IList<NotesModel> notes = null;
 
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 notes = context.Notes_Support
                     .Select(notesItem => new NotesModel()
@@ -40,7 +40,7 @@ namespace Support.Controllers
 
         public IHttpActionResult PostNewNote(NotesModel notes)
         {
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 context.Notes_Support.Add(new Notes_Support()
                 {
@@ -60,7 +60,7 @@ namespace Support.Controllers
         {
             NotesModel notes = null;
 
-            using (var context = new Entities2())
+            using (var context = new Entities())
             {
                 notes = context.Notes_Support
                     .Where(notesItem => notesItem.id_issue == id)
