@@ -10,6 +10,9 @@ namespace Support.Controllers
 {
     public class CommentsController : ApiController
     {
+
+        [HttpGet]
+        [Route("api/Comments/")]
         public IHttpActionResult GetAll()
         {
             IList<CommentModel> comments = null;
@@ -39,7 +42,8 @@ namespace Support.Controllers
 
         }
 
-
+        [HttpGet]
+        [Route("api/Comments/")]
         public IHttpActionResult GetByReportNumber(String reportNumber)
         {
              IList<CommentModel> comments = null;
@@ -70,6 +74,7 @@ namespace Support.Controllers
         }
 
         [HttpPost]
+        [Route("api/Comments/")]
         public IHttpActionResult Post(CommentModel comment)
         {
             using (var context = new Entities())

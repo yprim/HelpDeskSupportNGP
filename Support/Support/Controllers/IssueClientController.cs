@@ -10,8 +10,9 @@ namespace Support.Controllers
 {
     public class IssueClientController : ApiController
     {
-        
 
+        [HttpGet]
+        [Route("api/IssueClient/")]
         public IHttpActionResult GetAll()
         {
             IList<IssueClientModel> issues = null;
@@ -48,7 +49,8 @@ namespace Support.Controllers
 
 
 
-
+        [HttpPut]
+        [Route("api/IssueClient/")]
         public IHttpActionResult Put(IssueClientModel issue)
         {
             using (var context = new Entities())

@@ -10,6 +10,8 @@ namespace Support.Controllers
 {
     public class NotesController : ApiController
     {
+        [HttpGet]
+        [Route("api/Notes/")]
         public IHttpActionResult GetAll()
         {
             IList<NotesModel> notes = null;
@@ -39,6 +41,7 @@ namespace Support.Controllers
         }
 
         [HttpPost]
+        [Route("api/Notes/")]
         public IHttpActionResult PostNewNote(NotesModel notes)
         {
             using (var context = new Entities())
@@ -57,6 +60,8 @@ namespace Support.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("api/Notes/{id}")]
         public IHttpActionResult GetByIssue(int id)
         {
             IList<NotesModel> notes = null;

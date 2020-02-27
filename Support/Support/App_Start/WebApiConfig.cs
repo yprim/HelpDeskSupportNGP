@@ -14,7 +14,7 @@ namespace Support
             // config.EnableCors(new AccessPolicyCors());
             // Rutas de API web
 
-            //config.EnableCors();
+           config.EnableCors();
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

@@ -11,7 +11,8 @@ namespace Support.Controllers
 {
     public class SupporterController : ApiController
     {
-
+        [HttpGet]
+        [Route("api/Supporter/")]
         public IHttpActionResult GetAll()
         {
             IList<SupporterModel> supporter = null;
@@ -45,6 +46,8 @@ namespace Support.Controllers
             return Ok(supporter);
         }
 
+        [HttpGet]
+        [Route("api/Supporter/")]
         public IHttpActionResult GetByEmail(string email)
         {
             SupporterModel support = null;
@@ -79,6 +82,7 @@ namespace Support.Controllers
         }
 
         [HttpPost]
+        [Route("api/Supporter/")]
         public IHttpActionResult Post(SupporterModel supporter)
         {
             using (var context = new Entities())

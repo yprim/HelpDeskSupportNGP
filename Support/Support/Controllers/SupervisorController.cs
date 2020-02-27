@@ -10,7 +10,8 @@ namespace Support.Controllers
 {
     public class SupervisorController : ApiController
     {
-        //get all
+        [HttpGet]
+        [Route("api/Supervisor/")]
         public IHttpActionResult GetAll()
         {
             IList<SupervisorModel> support = null;
@@ -37,6 +38,8 @@ namespace Support.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/Supervisor/")]
         public IHttpActionResult GetByEmail(string email)
         {
             SupervisorModel support = null;
@@ -66,6 +69,7 @@ namespace Support.Controllers
         }
 
         [HttpPost]
+        [Route("api/Supervisor/")]
         public IHttpActionResult Post(SupervisorModel support)
         {
             using (var context = new Entities())
